@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {add, sub, addNum} from '../../redux/actions/actions'
 
 const Counter1 = ({counter1, onAdd, onSub, onAddNumber}) => {
   return(
@@ -24,9 +25,9 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onAdd: () => dispatch({ type: 'ADD' }),
-    onSub: () => dispatch({ type: 'SUB' }),
-    onAddNumber: num => dispatch({ type: 'ADD_NUM', value: num })
+    onAdd: () => dispatch(add()),
+    onSub: () => dispatch(sub()),
+    onAddNumber: num => dispatch(addNum(num))
   }
 }
 

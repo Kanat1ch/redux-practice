@@ -1,5 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {add2} from '../../redux/actions/actions'
 
 const Counter2 = ({counter2, onChange}) => {
   return(
@@ -22,7 +23,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    onChange: num => dispatch({ type: 'ADD2', value: num })
+    onChange: num => dispatch(add2(num))
   }
 }
 
