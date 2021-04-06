@@ -1,39 +1,15 @@
-import React, { Component } from 'react'
-import {connect} from 'react-redux'
+import React from 'react'
 import './App.scss'
+import Counter1 from './components/Counter1/Counter1'
+import Counter2 from './components/Counter2/Counter2'
 
-class App extends Component {
-  render() {
-
-    const {counter, onAdd, onSub, onAddNumber} = this.props
-
-    return(
-      <div className="App">
-        <h1>Counter</h1>
-        <p>{counter}</p>
-        <div className="buttons">
-          <button className="btn btn-plus" onClick={onAdd}>+</button>
-          <button className="btn btn-minus" onClick={onSub}>-</button>
-          <button className="btn btn-plus-num" onClick={() => onAddNumber(10)}>+10</button>
-          <button className="btn btn-minus-num" onClick={() => onAddNumber(-15)}>-15</button>
-        </div>
-      </div> 
-    )
-  }
+const App = () => {
+  return(
+    <div className="App">
+      <Counter1 />
+      <Counter2 />
+    </div> 
+  )
 }
 
-function mapStateToProps(state) {
-  return {
-    counter: state.counter
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onAdd: () => dispatch({ type: 'ADD' }),
-    onSub: () => dispatch({ type: 'SUB' }),
-    onAddNumber: num => dispatch({ type: 'ADD_NUM', value: num })
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)
+export default App
