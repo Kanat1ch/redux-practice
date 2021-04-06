@@ -25,3 +25,11 @@ export function add2(num) {
     value: num
   }
 }
+
+export function asyncAdd(num) {
+  return (dispatch) => {
+    setTimeout(() => {
+      dispatch(add2(num))
+    }, 2000)
+  }
+}
