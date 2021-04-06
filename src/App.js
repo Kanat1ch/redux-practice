@@ -5,7 +5,7 @@ import './App.scss'
 class App extends Component {
   render() {
 
-    const {counter, onAdd, onSub} = this.props
+    const {counter, onAdd, onSub, onAddNumber} = this.props
 
     return(
       <div className="App">
@@ -14,6 +14,8 @@ class App extends Component {
         <div className="buttons">
           <button className="btn btn-plus" onClick={onAdd}>+</button>
           <button className="btn btn-minus" onClick={onSub}>-</button>
+          <button className="btn btn-plus-num" onClick={() => onAddNumber(10)}>+10</button>
+          <button className="btn btn-minus-num" onClick={() => onAddNumber(-15)}>-15</button>
         </div>
       </div> 
     )
@@ -29,7 +31,8 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onAdd: () => dispatch({ type: 'ADD' }),
-    onSub: () => dispatch({ type: 'SUB' })
+    onSub: () => dispatch({ type: 'SUB' }),
+    onAddNumber: num => dispatch({ type: 'ADD_NUM', value: num })
   }
 }
 
